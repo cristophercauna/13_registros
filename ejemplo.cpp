@@ -9,7 +9,7 @@ struct EMP{
 int main(){
 EMP EMPLEADOS [100];
 
-int n;
+int n,i;
 cout << "Ingrese el numero de empleados: ";
 cin>>n;
 for(int i=0 ; i<n ; i++){
@@ -27,8 +27,19 @@ for(int i=0 ; i<n ; i++){
     cout<<"Ingrese el salario del trabajador:\n ";
     cin>>EMPLEADOS[i].sal;
 }
-int VentaEmpleado,maxVendedor;
-float maxVentas;
+cout<< "\n=== Datos Ingresados ===\n";
+for(int i=0 ; i<n ; i++){
+    cout<<"\nEmpleado #"<<i+1<<endl;
+    cout<<"Numero: "<<EMPLEADOS[i].num<<endl;
+    cout<<"Nombre: "<<EMPLEADOS[i].nom<<endl;
+    cout<<"Ventas: ";
+    for(int j=0 ; j<12 ; j++)
+    cout<<EMPLEADOS[i].ven[j]<<" ";
+    cout<<"\nSalario: "<<EMPLEADOS[i].sal<<endl;
+}
+// VOLVEMOS A AGREGAR "IMPRIMIR EL NUMERO DE TRABAJADOR,NOMBRE,VENTAS Y SALARIO"
+int maxVendedor;
+float maxVentas,VentaEmpleado;
 maxVentas=0;
 for(int i=0; i<n ; i++){
     VentaEmpleado=0;
@@ -42,5 +53,25 @@ for(int j=0; j<12 ; j++){
 }
 cout<<"El Numero del empleado que vendio mas es el numero: "<<EMPLEADOS[maxVendedor].num<<endl;
 cout<<"El nombre del maximo vendedor es : "<<EMPLEADOS[maxVendedor].nom;
+    for (int i=0 ; i<n ; i++){
+        VentaEmpleado=0;
+for(int j=0;j<12;j++){
+    VentaEmpleado= VentaEmpleado+ EMPLEADOS[i].ven[j];
+    }
+    if(VentaEmpleado>100){
+        EMPLEADOS[i].sal= EMPLEADOS[i].sal + (0.10*EMPLEADOS[i].sal);
+    }
+}
+cout<<"\n=== Datos Actualizados ===\n";
+for(int i=0 ; i<n ; i++){
+    cout<<"\nEmpleado #"<<i+1<<endl;
+    cout<<"Numero: "<<EMPLEADOS[i].num<<endl;
+    cout<<"Nombre: "<<EMPLEADOS[i].nom<<endl;
+    cout<<"Ventas: ";
+    for(int j=0 ; j<12 ; j++)
+    cout<<EMPLEADOS[i].ven[j]<<" ";
+    cout<<"\nSalario Actualizado: "<<EMPLEADOS[i].sal<<endl;
+
+}
 return 0;
 }

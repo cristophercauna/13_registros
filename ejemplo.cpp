@@ -73,5 +73,16 @@ for(int i=0 ; i<n ; i++){
     cout<<"\nSalario Actualizado: "<<EMPLEADOS[i].sal<<endl;
 
 }
+int contador=0;
+cout<<"\n=== Trabajadores que tuvieron ventas menores a 30 en diciembre ===\n";
+for(int i=0;i<n;i++){
+    if(EMPLEADOS[i].ven[11]<30){
+        cout<<"Numero: "<<EMPLEADOS[i].num<<" | Nombre: "<<EMPLEADOS[i].nom<<endl;
+         contador=contador+1;
+    }
+}
+if(contador==0){
+    cout<<"No hubo trabajadores con ventas menores a 30 en el mes de diciembre"<<endl;
+}
 return 0;
 }

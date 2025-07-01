@@ -13,5 +13,8 @@ struct contactoEmail{
     int edad;
     correo email;
 };
+void leerCorreo(correo &, string, string);
+void leerContacto(contactoEmail &, string, char, int, correo);
+void imprimeContacto(contactoEmail &);
 
 #endif

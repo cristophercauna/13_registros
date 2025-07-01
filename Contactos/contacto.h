@@ -1,5 +1,5 @@
-#ifndef CONTACTO.H
-#define CONTACTO.H
+#ifndef CONTACTO_H
+#define CONTACTO_H
 #include<string>
 using namespace std;
 struct correo{

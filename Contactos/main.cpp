@@ -1,6 +1,7 @@
 #include<iostream>
 #include<string>
 #include "contacto.h"
+#include "gestorContacto.h"
 using namespace std;
 
 
@@ -30,50 +31,49 @@ int main(){
                 cout<<"Ingrese el correo electronico (usuario@dominio): "<<endl;
                 cout<<"\tIngrese el usuario: "; cin>>user;
                 cout<<"\tIngrese el dominio: "; cin>>domain;
-                
                 leerCorreo(email,user,domain);
                 leerContacto(cont,nom,sex,edad,email);
+                agregarContacto(lista,n,cont);
                 //imprimeContacto(cont);
 
-                lista[n] = cont;
-                n++;
                 system("pause");
                 break;
             case 2:
                 if(n==0){
                     cout<<"No hay contactos que modificar"<<endl;
-                }
-                cout<<"Contactos Disponibles"<<endl;
-                for(int i=0;i<n;i++){
-                    cout<<"Contacto #"<<i+1<<":"<<lista[i].nom<<endl;
-                }
-                cout<<"Ingrese el contacto que quiere modificar"; cin>>k;
-                k=k-1;
-                if(k<0 ||k>=n){
-                    cout<<"El contacto a modificar no esta registrado"<<endl;
-                    system("pause");
-                    break;
-                }
-                cout<<"Contacto a modificar #"<<endl;
-                imprimeContacto(lista[k]);
-                cout<<"-----------------------------------"<<endl;
-                cout<<"Apartir de aca los datos que ingresen seran los nuevos"<<endl;
-                cin.ignore();
-                cout<<"Nombre | "; getline(cin,nom);
-                cout<<"Sexo | "; cin>>sex;
-                cout<<"Edad | "; cin>>edad;
-                cout<<"Ingrese el Correo Electronico (usurio@dominio)"<<endl;
-                cout<<"\tUsuario | "; cin>>user;
-                cout<<"\tDominio | "; cin>>domain;
-                leerCorreo(email,user,domain);
-                leerContacto(lista[k],nom,sex,edad,email);
+                }else{
+                        cout<<"Contactos Disponibles"<<endl;
+                        for(int i=0;i<n;i++){
+                                cout<<"Contacto #"<<i+1<<":"<<lista[i].nom<<endl;
+                        }
+                            cout<<"Ingrese el contacto que quiere modificar: ";
+                            cin>>k;
+                            k=k-1;
+                            if(k<0 ||k>=n){
+                            cout<<"El contacto a modificar no esta registrado"<<endl;
+                                system("pause");
+                                break;
+                            }
+                            cout<<"Contacto a modificar #"<<endl;
+                            imprimeContacto(lista[k]);
+                            cout<<"-----------------------------------"<<endl;
+                            cout<<"Apartir de aca, los datos que ingresen seran los nuevos"<<endl;
+
+                            cin.ignore();
+                            cout<<"Nombre | "; getline(cin,nom);
+                            cout<<"Sexo | "; cin>>sex;
+                            cout<<"Edad | "; cin>>edad;
+                            cout<<"Ingrese el Correo Electronico (usuario@dominio)"<<endl;
+                            cout<<"\tUsuario | "; cin>>user;
+                            cout<<"\tDominio | "; cin>>domain;
+                            leerCorreo(email,user,domain);
+                            leerContacto(cont,nom,sex,edad,email);
+                            modificarContacto(lista,n,k,cont);
+                            system("pause");
+                    }
                 break;
             case 3:
-                for(int i = 0; i < n; i++){
-                    cout<<"Contacto #"<<i+1<<endl;
-                    imprimeContacto(lista[i]);
-                    cout<<endl;
-                }
+                    mostrarContactos(lista,n);
                 system("pause");
                 break;
             case 0:

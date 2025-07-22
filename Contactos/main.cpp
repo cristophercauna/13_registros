@@ -21,6 +21,7 @@ int main(){
         cout<<"3. Mostrar contactos"<<endl;
         cout<<"4. Mostrar contactos por Dominio"<<endl;
         cout<<"5. Eliminar Contacto"<<endl;
+        cout<<"6. Buscar un contacto por Email"<<endl;
         cout<<"0. Salir"<<endl;
         cout<<"Elige una opcion: "; cin>>op;
         switch(op){
@@ -99,6 +100,18 @@ int main(){
                         cout<<"Ingrese el numero del contacto que quiere eliminar: "; cin>>k;
                         k = k-1;
                         eliminarContacto(lista , n , k);
+                    }
+                    system("pause");
+                    break;
+            case 6:
+                    if (n == 0) {
+                        cout << "No hay contactos para buscar." << endl;
+                    }else{
+                        string correoBuscado;
+                        cout << "Ingrese el correo completo a buscar (ej: usuario@dominio): ";
+                        cin.ignore();
+                        getline(cin, correoBuscado);
+                        buscarContactoPorEmail(lista, n, correoBuscado);
                     }
                     system("pause");
                     break;

@@ -50,3 +50,17 @@ void eliminarContacto(contactoEmail lista[], int &n, int index){
         cout<<"La Posicion ingresada es invalida"<<endl;
     }
 }
+void buscarContactoPorEmail(contactoEmail lista[], int n, string emailBuscado) {
+    int i;
+    for(i = 0; i < n; i++) {
+        string correoCompleto = lista[i].email.user + "@" + lista[i].email.domain;
+        if(correoCompleto == emailBuscado){
+            cout<<"Contacto encontrado en la posicion #"<<i+1<< ":" <<endl;
+            imprimeContacto(lista[i]);
+            break;
+        }
+    }
+    if(i == n){
+        cout<<"No se encontro ningun contacto con el email ingresado."<<endl;
+    }
+}

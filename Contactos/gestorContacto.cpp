@@ -39,3 +39,14 @@ void buscarPorDominio(contactoEmail lista[], int n, string dominio){
         cout<<"No se encontro ningun contacto con ese dominio"<<endl;
     }
 }
+void eliminarContacto(contactoEmail lista[], int &n, int index){
+    if(index >= 0 && index < n){
+        for(int i=index ; i<n-1 ; i++){
+            lista[i]=lista[i+1];
+        }
+        n--;
+        cout<<"Contacto eliminado correctamente"<<endl;
+    }else{
+        cout<<"La Posicion ingresada es invalida"<<endl;
+    }
+}

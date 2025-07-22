@@ -11,5 +11,6 @@ void modificarContacto(contactoEmail lista[],int n, int k, contactoEmail nuevo);
 void mostrarContactos(contactoEmail lista[], int n);
 void buscarPorDominio(contactoEmail lista[], int n,string dominio);
 void eliminarContacto(contactoEmail lista[], int &n, int indix);
+void buscarContactoPorEmail(contactoEmail lista[], int n, string emailBuscado);
 
 #endif

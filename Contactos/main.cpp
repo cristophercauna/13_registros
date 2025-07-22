@@ -19,6 +19,7 @@ int main(){
         cout<<"1. Agregar contacto"<<endl;
         cout<<"2. Modificar contactos"<<endl;
         cout<<"3. Mostrar contactos"<<endl;
+        cout<<"4. Mostrar contactos por Dominio"<<endl;
         cout<<"0. Salir"<<endl;
         cout<<"Elige una opcion: "; cin>>op;
         switch(op){
@@ -76,6 +77,16 @@ int main(){
                     mostrarContactos(lista,n);
                 system("pause");
                 break;
+            case 4:
+                    if(n == 0){
+                        cout<<"No hay contactos registrados"<<endl;
+                    }else{
+                        cout<<"Ingrese el dominio a buscar (ejm. gmail.com)"<<endl;
+                        cin>>domain;
+                        buscarPorDominio(lista,n,domain);
+                    }
+                    system("pause");
+                    break;
             case 0:
                 char preg;
                 cout<<"Esta seguro de salir? (S/N): ";

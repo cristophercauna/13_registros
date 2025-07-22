@@ -20,6 +20,7 @@ int main(){
         cout<<"2. Modificar contactos"<<endl;
         cout<<"3. Mostrar contactos"<<endl;
         cout<<"4. Mostrar contactos por Dominio"<<endl;
+        cout<<"5. Eliminar Contacto"<<endl;
         cout<<"0. Salir"<<endl;
         cout<<"Elige una opcion: "; cin>>op;
         switch(op){
@@ -84,6 +85,20 @@ int main(){
                         cout<<"Ingrese el dominio a buscar (ejm. gmail.com)"<<endl;
                         cin>>domain;
                         buscarPorDominio(lista,n,domain);
+                    }
+                    system("pause");
+                    break;
+            case 5:
+                    if(n == 0){
+                        cout<<"No hay contactos para eliminar"<<endl;
+                    }else{
+                        cout<<"Contactos Disponibles----------"<<endl;
+                        for(int i=0 ; i<n ; i++){
+                            cout<<"Contato #"<<i+1<<": "<<lista[i].nom<<endl;
+                        }
+                        cout<<"Ingrese el numero del contacto que quiere eliminar: "; cin>>k;
+                        k = k-1;
+                        eliminarContacto(lista , n , k);
                     }
                     system("pause");
                     break;

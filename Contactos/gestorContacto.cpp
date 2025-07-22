@@ -26,3 +26,16 @@ void mostrarContactos(contactoEmail lista[],int n){
         cout<<endl;
     }
 }
+void buscarPorDominio(contactoEmail lista[], int n, string dominio){
+    int contador = 0;
+    for(int i=0 ; i<n ; i++){
+        if(lista[i].email.domain == dominio){
+            imprimeContacto(lista[i]);
+            cout<<endl;
+            contador++;
+        }
+    }
+    if(contador == 0){
+        cout<<"No se encontro ningun contacto con ese dominio"<<endl;
+    }
+}
